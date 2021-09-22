@@ -1,7 +1,11 @@
 package dto
 
 type SearchResponse struct {
-	Hits struct {
+	ReportID  string `json:"-"`
+	AccountID string `json:"-"`
+	InitDate  string `json:"-"`
+	EndDate   string `json:"-"`
+	Hits      struct {
 		Total struct {
 			Value int64 `json:"value"`
 		} `json:"total"`
