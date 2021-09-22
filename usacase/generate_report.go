@@ -36,10 +36,10 @@ func GenetareReport(requestJson []byte, repository repository.TransactionElastic
 		return err
 	}
 
-	err = os.Remove("data/" + data.ReportID + ".html")
-	if err != nil {
-		return err
-	}
+	// err = os.Remove("data/" + data.ReportID + ".html")
+	// if err != nil {
+	// 	return err
+	// }
 	return nil
 }
 
@@ -48,16 +48,16 @@ func generateReportFile(data dto.SearchResponse) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	t := template.Must(template.New("report.html").ParseFiles("tamplates/report.html"))
+	t := template.Must(template.New("report.html").ParseFiles("templates/report.html"))
 	err = t.Execute(f, data)
 	if err != nil {
 		return nil, err
 	}
-	result, err := uploadReport(data)
-	if err != nil {
-		return nil, err
-	}
-	return []byte(result), nil
+	// result, err := uploadReport(data)
+	// if err != nil {
+	// 	return nil, err
+	// }
+	return []byte("www.google.com"), nil
 }
 
 func uploadReport(data dto.SearchResponse) (string, error) {
